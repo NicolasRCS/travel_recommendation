@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar tipo TravelBloom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.navbar {
+  height: 70px;
+  background-color: #173042;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 38px;
+  height: 38px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.search-box {
+  background: white;
+  border-radius: 25px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  width: 220px;
+  border-radius: 20px;
+}
+
+.search-box button {
+  border: none;
+  background-color: #5fa8a3;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.hero {
+  position: relative;
+  height: calc(100vh - 70px);
+  background-image: url('./fondo_ciudad.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 70px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.social-icons {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.book-btn {
+  background-color: #1c8a87;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.social-icons {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+#resultsTitle {
+  display: none;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: orange;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 20;
+}
+
+#results {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+  z-index: 20;
+}
+
+#results .card {
+  width: 260px;
+  background: white;
+  border: 2px solid #ff8c66;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#results .card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+#results .card h3 {
+  margin: 8px 0 5px;
+  font-size: 18px;
+}
+
+#results .card p {
+  font-size: 13px;
+  margin: 0;
+}
+</style>
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+          <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="logo">
+          <span>TravelBloom</span>
+        </div>
+    
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+          <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar recomendaciones">
+            <button type="button" id="searchBtn">Buscar</button>
+            <button type="button" id="clearBtn">Clear</button>
+          </div>
+          
+          <h2 id="resultsTitle">Search Results</h2>
+          <div id="results"></div>
+          
+          <script src="travel_recommendation.js"></script>
+      </nav>
+    
+      <section class="hero">
+        <div class="overlay"></div>
+    
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+    
+        <div class="hero-content">
+          <h1>DISCOVER YOUR NEXT ADVENTURE</h1>
+          <p>
+            Our travel recommendation platform helps you discover amazing destinations
+            around the world with a simple and friendly interface. Search by country,
+            city, or keyword and explore useful information, images, and suggestions
+            for each place.
+          </p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </section>
+    
+   
+</body>
+</html>
